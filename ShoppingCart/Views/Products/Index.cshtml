@@ -7,22 +7,26 @@
 <h1>Products</h1>
 
 <div class="row">
-        @foreach (var item in Model)
-        {
-                <div class="col-4">
-                        <img src="/media/products/@item.Image" class="img-fluid" alt="" />
-                        <h4>@item.Name</h4>
-                        <div>
-                                @Html.Raw(item.Description)
-                        </div>
-                        <p>
-                                @item.Price.ToString("C2")
-                        </p>
-                        <p>
-                                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
-                        </p>
-                </div>
-        }
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <img src="/media/products/@item.Image" class="img-fluid" alt="" />
+            <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
+            <div class="col-sm-8 fill">
+                <div id="forgeViewer"></div>
+            </div>
+            <h4>@item.Name</h4>
+            <div>
+                @Html.Raw(item.Description)
+            </div>
+            <p>
+                @item.Price.ToString("C2")
+            </p>
+            <p>
+                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
+            </p>
+        </div>
+    }
 
 
         @if (ViewBag.TotalPages > 1)
